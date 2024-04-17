@@ -1,10 +1,8 @@
 async function RecupWorks() {
     const reponse = await fetch("http://localhost:5678/api/works/");
     const works = await reponse.json();
-    console.log(works);
 
     for (let i = 0; i < works.length; i++) {
-        console.log(works[i].title)
 
         const gallery = document.querySelector(".gallery");             //Récupération DOM gallerie//
 
@@ -26,6 +24,28 @@ async function RecupWorks() {
 }
 
 RecupWorks();
+
+
+let gallery = document.querySelector(".gallery")
+let portfolio = document.querySelector("#portfolio");
+let divBouton = document.createElement("div");
+
+portfolio.insertBefore(divBouton, gallery)
+
+
+let bouton = document.createElement("button");
+bouton.innerText = "Tout";
+
+divBouton.appendChild(bouton);
+
+
+
+
+
+
+
+
+
 
 
 
