@@ -1,7 +1,8 @@
-async function RecupWorks() {
-    const reponse = await fetch("http://localhost:5678/api/works/");
-    const works = await reponse.json();
+const reponse = await fetch("http://localhost:5678/api/works/");
+const works = await reponse.json();
 
+async function AfficheWorks(works) {
+    
     for (let i = 0; i < works.length; i++) {
 
         const gallery = document.querySelector(".gallery");             //Récupération DOM gallerie//
@@ -23,20 +24,97 @@ async function RecupWorks() {
     
 }
 
-RecupWorks();
+AfficheWorks(works);
 
 
-let gallery = document.querySelector(".gallery")
-let portfolio = document.querySelector("#portfolio");
-let divBouton = document.createElement("div");
+let gallery = document.querySelector(".gallery")                                       //Récupération de la div gallery//
+let portfolio = document.querySelector("#portfolio");                                  //Récupération de l'id Portfolio//
+let divBouton = document.createElement("div");                                         //Création div où placer les boutons//
+divBouton.classList.add("divBouton")
 
-portfolio.insertBefore(divBouton, gallery)
+portfolio.insertBefore(divBouton, gallery)                                             //Insertion de la div AVANT la gallerie//
 
-
+//Création et insertion des boutons//
 let bouton = document.createElement("button");
-bouton.innerText = "Tout";
+bouton.innerHTML = "Tout";
+bouton.classList.add("Tout")
 
 divBouton.appendChild(bouton);
+
+let bouton2 = document.createElement("button");
+bouton2.innerHTML = "Objets";
+bouton2.classList.add("Objets")
+
+divBouton.appendChild(bouton2);
+
+let bouton3 = document.createElement("button");
+bouton3.innerHTML = "Appartements";
+bouton3.classList.add("Appart")
+
+divBouton.appendChild(bouton3);
+
+let bouton4 = document.createElement("button");
+bouton4.innerHTML = "Hôtels & Restaurants"
+bouton4.classList.add("HR")
+
+divBouton.appendChild(bouton4);
+//Création et insertion des boutons//
+
+
+
+const BoutonTout = document.querySelector(".Tout");
+
+
+    BoutonTout.addEventListener("click", function() {
+        document.querySelector(".gallery").innerHTML = '';
+        AfficheWorks(works)
+});
+
+
+const BoutonObjets = document.querySelector(".Objets");
+
+
+    BoutonObjets.addEventListener("click", function () {
+        const WorksObjets = works.filter(function (works) {                                        //Bouton Objets//
+        return works.categoryId == 1;
+    });
+    document.querySelector(".gallery").innerHTML = '';
+    AfficheWorks(WorksObjets)
+});
+
+
+const BoutonAppart = document.querySelector(".Appart")
+
+
+    BoutonAppart.addEventListener("click", function() {
+        const WorksAppart = works.filter(function (works) {
+        return works.categoryId == 2;    
+    });
+    document.querySelector(".gallery").innerHTML = '';
+    AfficheWorks(WorksAppart)
+});
+
+
+const BoutonHR = document.querySelector(".HR")
+
+
+    BoutonHR.addEventListener("click", function() {
+        const WorksHR = works.filter(function (works) {
+        return works.categoryId == 3;    
+    });
+    document.querySelector(".gallery").innerHTML = '';
+    AfficheWorks(WorksHR)
+});
+
+
+
+
+
+
+
+
+
+
 
 
 
