@@ -1,0 +1,36 @@
+.Login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.Login h2 {
+    color: green;
+}
+
+.Login input[type="email"] {
+    height: 35px;
+    width: 300px;
+    border: transparent;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.Login input[type="text"] {
+    height: 35px;
+    width: 300px;
+    border: transparent;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.Login input[type="submit"] {
+    width: auto;
+    margin: 0px;
+}
+
+.oublie p {
+    color:black;
+    font-weight: 700;
+}
+
