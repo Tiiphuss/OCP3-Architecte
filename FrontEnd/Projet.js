@@ -105,6 +105,8 @@ const BoutonHR = document.querySelector(".HR")
     document.querySelector(".gallery").innerHTML = '';
     AfficheWorks(WorksHR)
 });
+//Fin boutons//
+
 
 
 

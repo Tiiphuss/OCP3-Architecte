@@ -3,30 +3,43 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    margin-top: 100px;
 }
-
 
 .Login h2 {
     color: green;
 }
 
 .Login input[type="email"] {
-    height: 35px;
-    width: 300px;
+    height: 45px;
+    width: 350px;
     border: transparent;
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .Login input[type="text"] {
-    height: 35px;
-    width: 300px;
+    height: 45px;
+    width: 350px;
     border: transparent;
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .Login input[type="submit"] {
-    width: auto;
-    margin: 0px;
+    width: 160px;
+    height: 33px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: transparent;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.oublie {
+    margin-bottom: 390px;
 }
 
 .oublie p {
@@ -34,3 +47,14 @@
     font-weight: 700;
 }
 
+.email {
+    margin-top: 20px;
+}
+
+.email p {
+    margin-bottom: 5px
+}
+
+.mdp p {
+    margin-bottom: 5px;
+}
