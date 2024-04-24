@@ -38,13 +38,23 @@
     gap: 15px;
 }
 
-.oublie {
-    margin-bottom: 390px;
-}
-
 .oublie p {
     color:black;
     font-weight: 700;
+}
+
+.erreur p {
+    font-weight: 900;
+    font-size: larger;
+    border: solid red 2px;
+    padding: 10px;
+}
+
+.erreur h3 {
+    font-weight: 900;
+    font-size: larger;
+    border: solid green 2px;
+    padding: 10px;
 }
 
 .email {
@@ -57,4 +67,8 @@
 
 .mdp p {
     margin-bottom: 5px;
+}
+
+footer {
+    margin-top: 390px;
 }
