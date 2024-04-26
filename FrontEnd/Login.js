@@ -45,6 +45,9 @@ if(response.status == 200) {
     window.localStorage.setItem("userId", "1");                                            //Enregistrement Localstorage userId+Token//
     window.localStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4");
 
+    const token = window.localStorage.getItem("token")
+    console.log(token)                                                                  //Vérification enregistrement token//
+
     const connexion = document.createElement("h3")
     connexion.innerText = "Vous êtes connecté et allez être redirigé"                  //Connexion réussie console + affichage site//
     divErreur.innerHTML = ""

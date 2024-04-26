@@ -211,3 +211,11 @@ footer nav ul {
 	background-color: #226558;
 	color: white;
 }
+
+#logout {
+	display: none;
+}
+
+#login {
+	display: block;
+}

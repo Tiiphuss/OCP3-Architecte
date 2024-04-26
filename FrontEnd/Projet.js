@@ -107,8 +107,25 @@ const BoutonHR = document.querySelector(".HR")
 });
 //Fin boutons//
 
+let token = window.localStorage.getItem("token");
 
+if (token === "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("logout").style.display = "block";
+} else {                                                                                  //Si il y a un token, cacher "login" et afficher "logout"//
+    document.getElementById("login").style.display = "block";
+    document.getElementById("logout").style.display = "none";
+}
 
+const logout = document.querySelector(".logout")
+
+logout.addEventListener("click", function() {
+    window.localStorage.removeItem("token");
+    token = null
+    document.getElementById("login").style.display = "block";                             //Clic sur "logout" => suppression du token et réaffichage de "login"//
+    document.getElementById("logout").style.display = "none";
+    console.log(token)
+});
 
 
 
