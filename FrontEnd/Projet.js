@@ -72,6 +72,29 @@ logout.addEventListener("click", function () {
   console.log(token);
 });
 
+//fonction works modale//
+const worksModale = function (works) {
+  for(let i = 0; i < works.length; i++) {
+    const modaleWorks = document.querySelector(".works-modale");
+
+    const figure = document.createElement("figure")
+
+    const image = document.createElement("img");
+    image.src = works[i].imageUrl;
+
+    const cliquable = document.createElement("a")
+    cliquable.setAttribute("href", "#");
+
+    const poubelle = document.createElement("i")
+    poubelle.classList.add("fa-solid", "fa-trash-can", "fa-sm")
+
+    modaleWorks.appendChild(figure);
+    figure.appendChild(image);
+    figure.appendChild(cliquable)
+    cliquable.appendChild(poubelle);
+  }
+}
+
 
 
 async function init() {
@@ -79,6 +102,7 @@ async function init() {
   const categories = await getCategories()
   AfficheWorks(works);
   CreeBouton(categories, works)
+  worksModale(works)
 }
 
 init();

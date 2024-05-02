@@ -9,7 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	
+	<script src="https://kit.fontawesome.com/2d2f680958.js" crossorigin="anonymous"></script>
 	
 	
 </head>
@@ -38,7 +38,30 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+	<div class="entete">	
+		<h2>Mes Projets</h2>   
+
+		<div class="modale">
+			<a href="#modal" class="js-modal" style="text-decoration: none"> <i class="fa-regular fa-pen-to-square"></i>Modifier</a>
+		</div>
+	</div>	
+	<aside id="modal" class="modal" aria-hidden="true" role="dialog" style="display: none">
+		<div class="modale-wrapper js-modal-stop">
+			<button class="js-modal-close"><i class="fa-solid fa-xmark fa-lg"></i></button>
+			
+			<div class="titre-modale"> <h1>Galerie photo</h1> </div>
+
+			<div class="works-modale">
+
+			</div>
+			
+			<div class="bouton-modale2"> 
+				<button class="btn_modale"> <a href="modal2" style="text-decoration: none">Ajouter une photo</button> </a> 
+			</div>
+		</div>
+		
+	</aside>
+
 		<div class="gallery">
 			
 		</div>
@@ -66,6 +89,7 @@
 	</nav>
 </footer>
 <script src="api.js"></script>
+<script src="modale.js"></script>
 <script src="Projet.js"></script>
 </body>
 </html>

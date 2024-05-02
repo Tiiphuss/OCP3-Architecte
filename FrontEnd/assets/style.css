@@ -219,3 +219,118 @@ footer nav ul {
 #login {
 	display: block;
 }
+
+.entete {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
+
+.entete h2 {
+	margin-right: 15px;
+}
+
+.modale a {
+	color: black;
+}
+
+.fa-pen-to-square {
+	margin-right: 5px;
+}
+
+/*Modale*/
+
+.modal {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.modale a:hover {
+	text-shadow: 0px 1px 10px black;
+}
+
+.modale-wrapper {
+	overflow: auto;
+	width: 700px;
+	max-width: calc(100vw - 20px);
+	max-height: calc(100vh - 20px);
+	padding: 20px;
+	background-color: white;
+}
+
+.js-modal-close {
+	border: transparent;
+	background-color: transparent;
+	position: relative;
+	left: 96%;
+}
+
+.js-modal-close:hover {
+	border: solid 1px black;
+}
+
+.titre-modale h1 {
+	color: black;
+	font-family: unset;
+	font-weight: 400;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.bouton-modale2 button {
+	font-family: 'Syne';
+    font-weight: 700;
+    color: white;
+    background-color: #226558;
+    text-align: center;
+    border-radius: 60px;
+	padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+	border: transparent;
+	margin-left: 33%;
+	margin-bottom: 20px;
+}
+
+.bouton-modale2 a {
+	color: white;
+}
+
+.works-modale {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 40px;
+	margin-left: 80px;
+	margin-right: 40px;
+	margin-bottom: 40px;
+	padding-bottom: 50px;
+	border-bottom: solid 1px grey;
+}
+
+.works-modale figure {
+	width: 17%;
+}
+
+.works-modale img {
+	height: 130px;
+	width: 100%;
+}
+
+.fa-trash-can {
+	position: relative;
+	bottom: 127px;
+	left: 68px;
+	background-color: black;
+	color: white;
+	padding: 4px;
+	line-height: unset;
+}
