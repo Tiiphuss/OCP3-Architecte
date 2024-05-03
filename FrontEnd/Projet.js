@@ -86,7 +86,7 @@ const worksModale = function (works) {
     cliquable.setAttribute("href", "#");
 
     const poubelle = document.createElement("i")
-    poubelle.classList.add("fa-solid", "fa-trash-can", "fa-sm")
+    poubelle.classList.add("fa-solid", "fa-trash-can")
 
     modaleWorks.appendChild(figure);
     figure.appendChild(image);

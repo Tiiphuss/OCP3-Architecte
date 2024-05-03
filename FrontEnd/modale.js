@@ -1,8 +1,10 @@
 let modal = null
+let modal2 = null
 
 const openModal = function (e) {
     e.preventDefault()
     const target = document.querySelector(e.target.getAttribute("href"))
+    console.log(target)
     target.style.display = null
     target.removeAttribute("aria-hidden")
     target.setAttribute("aria-modal", "true")
@@ -10,6 +12,19 @@ const openModal = function (e) {
     modal.addEventListener("click", closeModal)
     modal.querySelector(".js-modal-close").addEventListener("click", closeModal)
     modal.querySelector(".js-modal-stop").addEventListener("click", stopPropagation)
+}
+
+const openModal2 = function (e) {
+    e.preventDefault()
+    const target = document.querySelector(e.target.getAttribute("href"))
+    console.log(target)
+    target.style.display = null
+    target.removeAttribute("aria-hidden")
+    target.setAttribute("aria-modal", "true")
+    modal2 = target
+    modal2.addEventListener("click", closeModal2)
+    modal2.querySelector(".js-modal-close").addEventListener("click", closeModal2)
+    modal2.querySelector(".js-modal-stop").addEventListener("click", stopPropagation)
 }
 
 const closeModal = function (e) {
@@ -24,6 +39,18 @@ const closeModal = function (e) {
     modal = null
 }
 
+const closeModal2 = function (e) {
+    if (modal2 === null) return
+    e.preventDefault()
+    modal2.style.display = "none"
+    modal2.setAttribute("aria-hidden", "true")
+    modal2.removeAttribute("aria-modal")
+    modal2.removeEventListener("click", closeModal2)
+    modal2.querySelector(".js-modal-close").removeEventListener("click", closeModal2)
+    modal2.querySelector(".js-modal-stop").removeEventListener("click", stopPropagation)
+    modal2 = null
+}
+
 const stopPropagation = function (e) {
     e.stopPropagation()
 }
@@ -31,3 +58,11 @@ const stopPropagation = function (e) {
 document.querySelectorAll(".js-modal").forEach(a => {
     a.addEventListener("click", openModal)
 })
+
+document.querySelectorAll(".js-modal2").forEach(a => {
+    a.addEventListener("click", openModal2)
+    a.addEventListener("click", closeModal)
+})
+
+
+

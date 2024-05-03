@@ -272,6 +272,20 @@ footer nav ul {
 	left: 96%;
 }
 
+.js-modal-close2 {
+	border: transparent;
+	background-color: transparent;
+	position: relative;
+	left: 96%;
+}
+
+.retour {
+	border: transparent;
+	background-color: transparent;
+	position: relative;
+	right: 30px;
+}
+
 .js-modal-close:hover {
 	border: solid 1px black;
 }
@@ -280,6 +294,7 @@ footer nav ul {
 	color: black;
 	font-family: unset;
 	font-weight: 400;
+	font-size: xx-large;
 	text-align: center;
 	margin-top: 20px;
 }
@@ -307,17 +322,19 @@ footer nav ul {
 .works-modale {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 10px;
-	margin-top: 40px;
+	justify-content: space-between;
+	row-gap: 35px;
+	margin-top: 50px;
 	margin-left: 80px;
-	margin-right: 40px;
+	margin-right: 80px;
 	margin-bottom: 40px;
-	padding-bottom: 50px;
-	border-bottom: solid 1px grey;
+	padding-bottom: 75px;
+	border-bottom: solid 1px #B3B3B3;
 }
 
 .works-modale figure {
-	width: 17%;
+	width: 100px;
+	height: 130px;
 }
 
 .works-modale img {
@@ -325,12 +342,17 @@ footer nav ul {
 	width: 100%;
 }
 
-.fa-trash-can {
+.works-modale a {
 	position: relative;
-	bottom: 127px;
-	left: 68px;
+	bottom: 125px;
+	left: 72px;
+}
+
+.fa-trash-can {
 	background-color: black;
 	color: white;
-	padding: 4px;
+	padding: 5px;
+	font-size: small;
 	line-height: unset;
+	border-radius: 5px;
 }
