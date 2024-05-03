@@ -4,7 +4,6 @@ let modal2 = null
 const openModal = function (e) {
     e.preventDefault()
     const target = document.querySelector(e.target.getAttribute("href"))
-    console.log(target)
     target.style.display = null
     target.removeAttribute("aria-hidden")
     target.setAttribute("aria-modal", "true")
@@ -16,12 +15,11 @@ const openModal = function (e) {
 
 const openModal2 = function (e) {
     e.preventDefault()
-    const target = document.querySelector(e.target.getAttribute("href"))
-    console.log(target)
-    target.style.display = null
-    target.removeAttribute("aria-hidden")
-    target.setAttribute("aria-modal", "true")
-    modal2 = target
+    const target2 = document.querySelector(e.target.getAttribute("href"))
+    target2.style.display = null
+    target2.removeAttribute("aria-hidden")
+    target2.setAttribute("aria-modal", "true")
+    modal2 = target2
     modal2.addEventListener("click", closeModal2)
     modal2.querySelector(".js-modal-close").addEventListener("click", closeModal2)
     modal2.querySelector(".js-modal-stop").addEventListener("click", stopPropagation)
@@ -61,8 +59,15 @@ document.querySelectorAll(".js-modal").forEach(a => {
 
 document.querySelectorAll(".js-modal2").forEach(a => {
     a.addEventListener("click", openModal2)
-    a.addEventListener("click", closeModal)
+    a.addEventListener("click", function() {
+        document.querySelector("#modal").style.display = "none"
+    })
 })
 
 
-
+document.querySelectorAll(".retour").forEach(a => {
+    a.addEventListener("click", closeModal2)
+    a.addEventListener("click", function() {
+        document.querySelector("#modal").style.display = null
+    })
+})
