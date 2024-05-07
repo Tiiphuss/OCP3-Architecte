@@ -66,8 +66,35 @@
 			<button class="js-modal-close"> <i class="fa-solid fa-xmark fa-lg"> </i></button>
 			<button class="retour"> <i class="fa-solid fa-arrow-left fa-lg"></i> </button>
 
-			<p>BLAHBLAHBLAH</p>
-		</div>
+			<h1 class="titreModale2">Ajout photo</h1>
+			
+			<button class="iFile"> 
+				<i class="fa-regular fa-image"></i> 
+				<label class="lblFile" for="file">+ Ajouter photo</label> 
+				<input type="file" name="file" id="file" required accept=".png,.jpg"> 
+				<p>jpg, png : 4mo max</p> 
+			</button>
+
+		<form class="formModale" action="#" method="post">
+			<div class="titre">
+				<label for="titre">Titre</label>
+				<input type="text" name="titre" id="titre" required>
+			</div>
+
+			<div class="categories">
+				<label for="categoriesSelect">Catégorie</label>
+
+				<select name="categories" id="categoriesSelect" required>
+  					<option value="objets">Objets</option>
+  					<option value="appartements">Appartements</option>
+  					<option value="hotels & restaurants">Hotels & restaurants</option>
+				</select>
+			</div>
+
+			<div class="inputModale">
+				<input type="submit" value="Valider">
+			</div>
+		</form>
 
 	</aside>
 
