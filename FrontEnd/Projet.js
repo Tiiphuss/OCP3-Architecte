@@ -92,6 +92,7 @@ const worksModale = function (works) {
 
     const cliquable = document.createElement("a");
     cliquable.setAttribute("href", "#");
+    cliquable.classList.add("suppr")
 
     const poubelle = document.createElement("i");
     poubelle.classList.add("fa-solid", "fa-trash-can");
