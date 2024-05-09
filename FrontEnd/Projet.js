@@ -86,13 +86,14 @@ const worksModale = function (works) {
     const modaleWorks = document.querySelector(".works-modale");
 
     const figure = document.createElement("figure");
+    figure.classList.add("figureModale")
 
     const image = document.createElement("img");
     image.src = works[i].imageUrl;
 
-    const cliquable = document.createElement("a");
-    cliquable.setAttribute("href", "#");
-    cliquable.classList.add("suppr")
+    const cliquable = document.createElement("button");
+    cliquable.classList.add("suppr" + (i))
+    
 
     const poubelle = document.createElement("i");
     poubelle.classList.add("fa-solid", "fa-trash-can");
@@ -102,6 +103,16 @@ const worksModale = function (works) {
     figure.appendChild(cliquable);
     cliquable.appendChild(poubelle);
   }
+  const figs = document.querySelectorAll(".figureModale")
+
+  for (let i = 0; i < figs.length; i++) {
+    document.querySelector(".suppr" + i).addEventListener("click", function() {
+    fetch("http://localhost:5678/api/works/" + (i+1), {
+      method: "DELETE",
+      headers: {Authorization: 'Bearer token'}
+    });
+    });
+  };
 };
 
 async function init() {

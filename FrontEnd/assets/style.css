@@ -346,10 +346,12 @@ footer nav ul {
 	width: 100%;
 }
 
-.works-modale a {
+.works-modale button {
 	position: relative;
-	bottom: 125px;
-	left: 72px;
+	bottom: 128px;
+	left: 68px;
+	background-color: transparent;
+	border: transparent;
 }
 
 .fa-trash-can {
