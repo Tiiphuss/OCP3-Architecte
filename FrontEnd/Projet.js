@@ -81,7 +81,7 @@ logout.addEventListener("click", function () {
 });
 
 //fonction works modale//
-const worksModale = function (works) {
+const worksModale = async function (works) {
   for (let i = 0; i < works.length; i++) {
     const modaleWorks = document.querySelector(".works-modale");
 
@@ -106,11 +106,17 @@ const worksModale = function (works) {
   const figs = document.querySelectorAll(".figureModale")
 
   for (let i = 0; i < figs.length; i++) {
-    document.querySelector(".suppr" + i).addEventListener("click", function() {
-    fetch("http://localhost:5678/api/works/" + (i+1), {
+    let works = await getWorks()
+    document.querySelector(".suppr" + i).addEventListener("click", async function() {
+    await fetch("http://localhost:5678/api/works/" + (works[i].id), {
       method: "DELETE",
-      headers: {Authorization: 'Bearer token'}
+      headers: {"Authorization": `bearer ${token}`}
     });
+    works = await getWorks()
+    document.querySelector(".works-modale").innerHTML = ""
+    worksModale(works)
+    document.querySelector(".gallery").innerHTML = ""
+    afficheWorks(works)
     });
   };
 };
@@ -120,7 +126,7 @@ async function init() {
   const categories = await getCategories();
   afficheWorks(works);
   creeBouton(); 
-  worksModale(works);
+  await worksModale(works);
 }
 
 init();
