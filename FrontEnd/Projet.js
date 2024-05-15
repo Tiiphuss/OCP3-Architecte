@@ -108,10 +108,7 @@ const worksModale = async function (works) {
   for (let i = 0; i < figs.length; i++) {
     let works = await getWorks()
     document.querySelector(".suppr" + i).addEventListener("click", async function() {
-    await fetch("http://localhost:5678/api/works/" + (works[i].id), {
-      method: "DELETE",
-      headers: {"Authorization": `bearer ${token}`}
-    });
+    DELETE(works, i)
     works = await getWorks()
     document.querySelector(".works-modale").innerHTML = ""
     worksModale(works)
@@ -120,6 +117,38 @@ const worksModale = async function (works) {
     });
   };
 };
+
+const formData = new FormData();
+
+document.querySelector(".submitForm").addEventListener("click", async function() {
+  let image = document.querySelector("#file").files[0];
+  let title = document.querySelector("#titre").value;
+  formData.append("image", image);
+  formData.append("title", title);
+  let categoryNom = document.querySelector("#categoriesSelect")
+
+  if (categoryNom.value == "objets") {
+      let category = 1
+      formData.append("category", category);
+      POST()
+    }
+
+  if (categoryNom.value == "appartements") {
+      let category = 2
+      formData.append("category", category);
+      POST()
+    }
+
+  if (categoryNom.value == "hotels & restaurants") {
+      let category = 3
+      formData.append("category", category);
+      POST()
+    }
+}) 
+
+
+
+
 
 async function init() {
   const works = await getWorks();

@@ -11,3 +11,18 @@ async function getCategories() {
     const categories = await reponse.json();
     return categories
 }
+
+async function DELETE(works, i) {
+    await fetch(baseUrl + "works/" + (works[i].id), {
+        method: "DELETE",
+        headers: {"Authorization": `bearer ${token}`}
+      });
+}
+
+async function POST() {
+    await fetch(baseUrl + "works/", {
+        method: "POST",
+        headers: {"Authorization": `bearer ${token}`},
+        body: formData
+    });
+}
