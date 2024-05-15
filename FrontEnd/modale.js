@@ -73,3 +73,16 @@ document.querySelectorAll(".retour").forEach(a => {
 })
 
 
+//Preview image//
+document.querySelector(".iFile").addEventListener("change", function() {
+    let image = document.querySelector("#file").files[0];
+  
+    document.querySelector(".aSupprimer").style.display = "none"
+    document.querySelector("#imagePreview").style.display = "block"
+
+    const reader = new FileReader(image);
+    reader.onload = function () {
+        document.querySelector("#imagePreview").src = reader.result
+      };
+      reader.readAsDataURL(image);
+});

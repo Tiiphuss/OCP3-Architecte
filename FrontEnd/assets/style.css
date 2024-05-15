@@ -380,7 +380,6 @@ input[type=file] {
 	border: transparent;
 	border-radius: 5px;
 	gap: 10px;
-	padding: 20px;
 }
 
 .iFile p {
@@ -468,5 +467,18 @@ input[type=file] {
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+}
+
+.aSupprimer {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin: 20px;
+}
+
+.iFile img {
+	display: none;
+	width: 30%;
+	height: 185px;
 }
 

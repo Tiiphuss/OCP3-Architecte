@@ -41,13 +41,13 @@ async function creeBouton() {
 
   const boutonTout = document.createElement("button");
   boutonTout.innerHTML = "Tout";
-  boutonTout.classList.add("Tout");
+  boutonTout.classList.add("Tout");                                //Création bouton "Tout"//
   divBouton.appendChild(boutonTout);
   
   const BoutonTout = document.querySelector(".Tout");
 
   BoutonTout.addEventListener("click", async function () {
-    document.querySelector(".gallery").innerHTML = "";
+    document.querySelector(".gallery").innerHTML = "";             //Ajout de la fonction de tri au bouton "Tout"//
     const works = await getWorks();
     afficheWorks(works); 
   });
@@ -57,7 +57,7 @@ async function creeBouton() {
     bouton.innerHTML = categories[i].name;
     divBouton.appendChild(bouton);
     
-    bouton.addEventListener("click", async function () {
+    bouton.addEventListener("click", async function () {           //Création des trois boutons catégories + leurs fonctions//
       const works = await getWorks();
       const worksTrier = works.filter(function (works) {
         return works.category.id == [i + 1];
@@ -69,6 +69,7 @@ async function creeBouton() {
 }
 //Fin boutons
 
+//Déconnexion//
 const logout = document.querySelector(".logout");
 
 logout.addEventListener("click", function () {
@@ -103,6 +104,7 @@ const worksModale = async function (works) {
     figure.appendChild(cliquable);
     cliquable.appendChild(poubelle);
   }
+  //Suppression Works//
   const figs = document.querySelectorAll(".figureModale")
 
   for (let i = 0; i < figs.length; i++) {
@@ -118,8 +120,9 @@ const worksModale = async function (works) {
   };
 };
 
-const formData = new FormData();
 
+//Envoie nouveau work API//
+const formData = new FormData();
 document.querySelector(".submitForm").addEventListener("click", async function() {
   let image = document.querySelector("#file").files[0];
   let title = document.querySelector("#titre").value;
@@ -149,7 +152,7 @@ document.querySelector(".submitForm").addEventListener("click", async function()
 
 
 
-
+//Fonction d'initialisation//
 async function init() {
   const works = await getWorks();
   const categories = await getCategories();
