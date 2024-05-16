@@ -44,7 +44,10 @@ const closeModal2 = function (e) {
     modal2.setAttribute("aria-hidden", "true")
     modal2.removeAttribute("aria-modal")
     modal2.removeEventListener("click", closeModal2)
-    modal2.querySelector(".js-modal-close").removeEventListener("click", closeModal2)
+    modal2.querySelector(".js-modal-close").removeEventListener("click", closeModal2,
+    document.querySelector(".afficherErreur").innerHTML = "",
+    document.querySelector(".aSupprimer").style.display = "flex",
+    document.querySelector("#imagePreview").style.display = "none")
     modal2.querySelector(".js-modal-stop").removeEventListener("click", stopPropagation)
     modal2 = null
 }
@@ -68,7 +71,10 @@ document.querySelectorAll(".js-modal2").forEach(a => {
 document.querySelectorAll(".retour").forEach(a => {
     a.addEventListener("click", closeModal2)
     a.addEventListener("click", function() {
-        document.querySelector("#modal").style.display = null
+    document.querySelector("#modal").style.display = null
+    document.querySelector(".afficherErreur").innerHTML = ""
+    document.querySelector(".aSupprimer").style.display = "flex"
+    document.querySelector("#imagePreview").style.display = "none"
     })
 })
 

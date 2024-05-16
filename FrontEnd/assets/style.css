@@ -482,3 +482,9 @@ input[type=file] {
 	height: 185px;
 }
 
+.afficherErreur p {
+	font-size: large;
+	text-align: center;
+	color: red;
+}
+

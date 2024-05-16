@@ -126,26 +126,145 @@ const formData = new FormData();
 document.querySelector(".submitForm").addEventListener("click", async function() {
   let image = document.querySelector("#file").files[0];
   let title = document.querySelector("#titre").value;
+  formData.delete("image")
   formData.append("image", image);
+  formData.delete("title")
   formData.append("title", title);
   let categoryNom = document.querySelector("#categoriesSelect")
 
   if (categoryNom.value == "objets") {
       let category = 1
+      formData.delete("category")
       formData.append("category", category);
-      POST()
+      let reponse = await fetch("http://localhost:5678/api/works", {
+        method: "POST",
+        headers: {"Authorization": `bearer ${token}`},
+        body: formData
+    });
+      if (reponse.status == 500) {
+        const divErreur = document.querySelector(".afficherErreur")
+        divErreur.innerHTML = ""
+        let erreur = document.createElement("p")
+        erreur.innerText = "Erreur 500 : Un problème est survenu."
+        divErreur.appendChild(erreur)
+      }
+      if (reponse.status == 400) {
+        const divErreur = document.querySelector(".afficherErreur")
+        divErreur.innerHTML = ""
+        let erreur = document.createElement("p")
+        erreur.innerText = "Erreur 400 : Un elément est manquant."
+        divErreur.appendChild(erreur)
+      }
+      if (reponse.status == 401) {
+        const divErreur = document.querySelector(".afficherErreur")
+        divErreur.innerHTML = ""
+        let erreur = document.createElement("p")
+        erreur.innerText = "Erreur 401 : vous n'êtes pas autorisé a faire ça."
+        divErreur.appendChild(erreur)
+      }
+      if (reponse.status == 201) {
+        const divErreur = document.querySelector(".afficherErreur")
+        divErreur.innerHTML = ""
+        let erreur = document.createElement("p")
+        erreur.innerText = "Votre projet a bien été posté !"
+        erreur.style.color = "green"
+        divErreur.appendChild(erreur)
+        document.querySelector(".aSupprimer").style.display = "flex"
+        document.querySelector("#imagePreview").style.display = "none"
+        document.querySelector(".gallery").innerHTML = ""
+        document.querySelector(".works-modale").innerHTML = ""
+        let works = await getWorks()
+        afficheWorks(works)
+        worksModale(works)
+      }
     }
 
   if (categoryNom.value == "appartements") {
       let category = 2
       formData.append("category", category);
-      POST()
+      let reponse = await fetch("http://localhost:5678/api/works", {
+        method: "POST",
+        headers: {"Authorization": `bearer ${token}`},
+        body: formData
+    });
+    if (reponse.status == 500) {
+      const divErreur = document.querySelector(".afficherErreur")
+      divErreur.innerHTML = ""
+      let erreur = document.createElement("p")
+      erreur.innerText = "Erreur 500 : Un problème est survenu."
+      divErreur.appendChild(erreur)
+    }
+    if (reponse.status == 400) {
+      const divErreur = document.querySelector(".afficherErreur")
+      divErreur.innerHTML = ""
+      let erreur = document.createElement("p")
+      erreur.innerText = "Erreur 400 : Un elément est manquant."
+      divErreur.appendChild(erreur)
+    }
+    if (reponse.status == 401) {
+      const divErreur = document.querySelector(".afficherErreur")
+      divErreur.innerHTML = ""
+      let erreur = document.createElement("p")
+      erreur.innerText = "Erreur 401 : vous n'êtes pas autorisé a faire ça."
+      divErreur.appendChild(erreur)
+    }
+    if (reponse.status == 201) {
+      const divErreur = document.querySelector(".afficherErreur")
+      divErreur.innerHTML = ""
+      let erreur = document.createElement("p")
+      erreur.innerText = "Votre projet a bien été posté !"
+      erreur.style.color = "green"
+      divErreur.appendChild(erreur)
+      document.querySelector(".gallery").innerHTML = ""
+      document.querySelector(".works-modale").innerHTML = ""
+      let works = await getWorks()
+      afficheWorks(works)
+      worksModale(works)
+    }
     }
 
   if (categoryNom.value == "hotels & restaurants") {
       let category = 3
       formData.append("category", category);
-      POST()
+      let reponse = await fetch("http://localhost:5678/api/works", {
+        method: "POST",
+        headers: {"Authorization": `bearer ${token}`},
+        body: formData
+    });
+    if (reponse.status == 500) {
+      const divErreur = document.querySelector(".afficherErreur")
+      divErreur.innerHTML = ""
+      let erreur = document.createElement("p")
+      erreur.innerText = "Erreur 500 : Un problème est survenu."
+      divErreur.appendChild(erreur)
+    }
+    if (reponse.status == 400) {
+      const divErreur = document.querySelector(".afficherErreur")
+      divErreur.innerHTML = ""
+      let erreur = document.createElement("p")
+      erreur.innerText = "Erreur 400 : Un elément est manquant."
+      divErreur.appendChild(erreur)
+    }
+    if (reponse.status == 401) {
+      const divErreur = document.querySelector(".afficherErreur")
+      divErreur.innerHTML = ""
+      let erreur = document.createElement("p")
+      erreur.innerText = "Erreur 401 : vous n'êtes pas autorisé a faire ça."
+      divErreur.appendChild(erreur)
+    }
+    if (reponse.status == 201) {
+      const divErreur = document.querySelector(".afficherErreur")
+      divErreur.innerHTML = ""
+      let erreur = document.createElement("p")
+      erreur.innerText = "Votre projet a bien été posté !"
+      erreur.style.color = "green"
+      divErreur.appendChild(erreur)
+      document.querySelector(".gallery").innerHTML = ""
+      document.querySelector(".works-modale").innerHTML = ""
+      let works = await getWorks()
+      afficheWorks(works)
+      worksModale(works)
+    }
     }
 }) 
 
