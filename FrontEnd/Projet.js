@@ -120,6 +120,18 @@ const worksModale = async function (works) {
   };
 };
 
+//Création options dans le Select pour poster un projet//
+const selectCategories = async function() {
+  let testC = await getCategories();
+  let select = document.querySelector("#categoriesSelect");
+
+  for (let i = 0; i < testC.length; i++) {
+    let option = document.createElement("option");
+    option.value = testC[i].id
+    option.innerText = testC[i].name
+    select.appendChild(option)
+  }
+}
 
 //Envoie nouveau work API//
 const formData = new FormData();
@@ -131,9 +143,9 @@ document.querySelector(".submitForm").addEventListener("click", async function()
   formData.delete("title")
   formData.append("title", title);
   let categoryNom = document.querySelector("#categoriesSelect")
+  let category = categoryNom.value
+  console.log(category)
 
-  if (categoryNom.value == "objets") {
-      let category = 1
       formData.delete("category")
       formData.append("category", category);
       let reponse = await fetch("http://localhost:5678/api/works", {
@@ -178,95 +190,7 @@ document.querySelector(".submitForm").addEventListener("click", async function()
         worksModale(works)
       }
     }
-
-  if (categoryNom.value == "appartements") {
-      let category = 2
-      formData.append("category", category);
-      let reponse = await fetch("http://localhost:5678/api/works", {
-        method: "POST",
-        headers: {"Authorization": `bearer ${token}`},
-        body: formData
-    });
-    if (reponse.status == 500) {
-      const divErreur = document.querySelector(".afficherErreur")
-      divErreur.innerHTML = ""
-      let erreur = document.createElement("p")
-      erreur.innerText = "Erreur 500 : Un problème est survenu."
-      divErreur.appendChild(erreur)
-    }
-    if (reponse.status == 400) {
-      const divErreur = document.querySelector(".afficherErreur")
-      divErreur.innerHTML = ""
-      let erreur = document.createElement("p")
-      erreur.innerText = "Erreur 400 : Un elément est manquant."
-      divErreur.appendChild(erreur)
-    }
-    if (reponse.status == 401) {
-      const divErreur = document.querySelector(".afficherErreur")
-      divErreur.innerHTML = ""
-      let erreur = document.createElement("p")
-      erreur.innerText = "Erreur 401 : vous n'êtes pas autorisé a faire ça."
-      divErreur.appendChild(erreur)
-    }
-    if (reponse.status == 201) {
-      const divErreur = document.querySelector(".afficherErreur")
-      divErreur.innerHTML = ""
-      let erreur = document.createElement("p")
-      erreur.innerText = "Votre projet a bien été posté !"
-      erreur.style.color = "green"
-      divErreur.appendChild(erreur)
-      document.querySelector(".gallery").innerHTML = ""
-      document.querySelector(".works-modale").innerHTML = ""
-      let works = await getWorks()
-      afficheWorks(works)
-      worksModale(works)
-    }
-    }
-
-  if (categoryNom.value == "hotels & restaurants") {
-      let category = 3
-      formData.append("category", category);
-      let reponse = await fetch("http://localhost:5678/api/works", {
-        method: "POST",
-        headers: {"Authorization": `bearer ${token}`},
-        body: formData
-    });
-    if (reponse.status == 500) {
-      const divErreur = document.querySelector(".afficherErreur")
-      divErreur.innerHTML = ""
-      let erreur = document.createElement("p")
-      erreur.innerText = "Erreur 500 : Un problème est survenu."
-      divErreur.appendChild(erreur)
-    }
-    if (reponse.status == 400) {
-      const divErreur = document.querySelector(".afficherErreur")
-      divErreur.innerHTML = ""
-      let erreur = document.createElement("p")
-      erreur.innerText = "Erreur 400 : Un elément est manquant."
-      divErreur.appendChild(erreur)
-    }
-    if (reponse.status == 401) {
-      const divErreur = document.querySelector(".afficherErreur")
-      divErreur.innerHTML = ""
-      let erreur = document.createElement("p")
-      erreur.innerText = "Erreur 401 : vous n'êtes pas autorisé a faire ça."
-      divErreur.appendChild(erreur)
-    }
-    if (reponse.status == 201) {
-      const divErreur = document.querySelector(".afficherErreur")
-      divErreur.innerHTML = ""
-      let erreur = document.createElement("p")
-      erreur.innerText = "Votre projet a bien été posté !"
-      erreur.style.color = "green"
-      divErreur.appendChild(erreur)
-      document.querySelector(".gallery").innerHTML = ""
-      document.querySelector(".works-modale").innerHTML = ""
-      let works = await getWorks()
-      afficheWorks(works)
-      worksModale(works)
-    }
-    }
-}) 
+) 
 
 
 
@@ -278,6 +202,7 @@ async function init() {
   afficheWorks(works);
   creeBouton(); 
   await worksModale(works);
+  selectCategories()
 }
 
 init();
