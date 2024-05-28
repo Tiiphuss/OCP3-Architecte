@@ -136,7 +136,8 @@ const selectCategories = async function() {
 //Envoie nouveau work API//
 const formData = new FormData();
 document.querySelector(".submitForm").addEventListener("click", async function() {
-  let image = document.querySelector("#file").files[0];
+  let image = ""
+  image = document.querySelector("#file").files[0];
   let title = document.querySelector("#titre").value;
   formData.delete("image")
   formData.append("image", image);
@@ -144,7 +145,6 @@ document.querySelector(".submitForm").addEventListener("click", async function()
   formData.append("title", title);
   let categoryNom = document.querySelector("#categoriesSelect")
   let category = categoryNom.value
-  console.log(category)
 
       formData.delete("category")
       formData.append("category", category);

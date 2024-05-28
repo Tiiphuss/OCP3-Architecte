@@ -4,16 +4,16 @@ Form.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     let inputEmail = document.getElementById("email");
-    let inputMdp = document.getElementById("mdp");                            //Lorsque l'on appuie sur le bouton submit-Récupération email+mdp et POST//
+    let inputMdp = document.getElementById("mdp"); //Lorsque l'on appuie sur le bouton submit-Récupération email+mdp et POST//
     let email = inputEmail.value;
     let password = inputMdp.value;
 
-    const Test = {
+    const body = {
         email,
         password
     };
     
-    const chargeUtile = JSON.stringify(Test)
+    const chargeUtile = JSON.stringify(body)
 
 let Try = fetch("http://localhost:5678/api/users/login", {
     method: "POST",

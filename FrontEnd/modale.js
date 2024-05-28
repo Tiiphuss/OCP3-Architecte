@@ -74,20 +74,65 @@ document.querySelectorAll(".retour").forEach(a => {
     document.querySelector("#modal").style.display = null
     document.querySelector(".afficherErreur").innerHTML = ""
     document.querySelector(".aSupprimer").style.display = "flex"
+    document.querySelector("#file").value = ""
+    document.querySelector("#imagePreview").src = ""
     document.querySelector("#imagePreview").style.display = "none"
     })
 })
 
+//Tests pour activer le bouton "Valider" dans la modale//
+document.querySelector(".submitForm").setAttribute("disabled", "")
+document.querySelector(".submitForm").style.backgroundColor = "grey"
+let file = document.querySelector("#file")
+let titre = document.querySelector("#titre")
+let categorie = document.querySelector("#categoriesSelect")
+
+file.addEventListener("change", ()=> {
+    if (file.value !== "") {
+        if (titre.value !== "") {
+            if (categorie.value !== "") {
+                document.querySelector(".submitForm").removeAttribute("disabled", "")
+                document.querySelector(".submitForm").style.backgroundColor = "#1D6154"
+            }
+        }
+    }
+})
+
+titre.addEventListener("change", ()=> {
+    if (file.value !== "") {
+        if (titre.value !== "") {
+            if (categorie.value !== "") {
+                document.querySelector(".submitForm").removeAttribute("disabled", "")
+                document.querySelector(".submitForm").style.backgroundColor = "#1D6154"
+            }
+        }
+    }
+})
+
+categorie.addEventListener("change", ()=> {
+    if (file.value !== "") {
+        if (titre.value !== "") {
+            if (categorie.value !== "") {
+                document.querySelector(".submitForm").removeAttribute("disabled", "")
+                document.querySelector(".submitForm").style.backgroundColor = "#1D6154"
+            }
+        }
+    }
+})
+
+
 
 //Preview image//
 document.querySelector(".iFile").addEventListener("change", function() {
-    let image = document.querySelector("#file").files[0];
+    let image = ""
+    image = document.querySelector("#file").files[0];
   
     document.querySelector(".aSupprimer").style.display = "none"
     document.querySelector("#imagePreview").style.display = "block"
 
     const reader = new FileReader(image);
     reader.onload = function () {
+        document.querySelector("#imagePreview").src = ""
         document.querySelector("#imagePreview").src = reader.result
       };
       reader.readAsDataURL(image);
