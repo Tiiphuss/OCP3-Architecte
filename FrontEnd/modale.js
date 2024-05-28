@@ -50,6 +50,8 @@ const closeModal2 = function (e) {
     document.querySelector("#imagePreview").style.display = "none")
     modal2.querySelector(".js-modal-stop").removeEventListener("click", stopPropagation)
     modal2 = null
+    document.querySelector(".submitForm").setAttribute("disabled", "")
+    document.querySelector(".submitForm").style.backgroundColor = "grey"
 }
 
 const stopPropagation = function (e) {
@@ -77,6 +79,8 @@ document.querySelectorAll(".retour").forEach(a => {
     document.querySelector("#file").value = ""
     document.querySelector("#imagePreview").src = ""
     document.querySelector("#imagePreview").style.display = "none"
+    document.querySelector(".submitForm").setAttribute("disabled", "")
+    document.querySelector(".submitForm").style.backgroundColor = "grey"
     })
 })
 
